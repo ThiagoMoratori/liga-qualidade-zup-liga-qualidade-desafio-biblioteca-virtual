@@ -2,6 +2,8 @@ package br.com.zup.edu.ligaqualidade.desafiobiblioteca;
 
 import br.com.zup.edu.ligaqualidade.desafiobiblioteca.pronto.TipoExemplar;
 
+import java.time.LocalDate;
+
 public class DadosEmprestimo {
 
 	public final int idLivro;
@@ -17,6 +19,18 @@ public class DadosEmprestimo {
 		this.tempo = tempo;
 		this.tipoExemplar = tipoExemplar;
 		this.idPedido = idPedido;
+	}
+
+	public boolean isLivre() {
+		return TipoExemplar.LIVRE.equals(tipoExemplar);
+	}
+
+	public boolean isRestrito() {
+		return TipoExemplar.RESTRITO.equals(tipoExemplar);
+	}
+
+	public boolean isTempoValido(LocalDate expiracao) {
+		return LocalDate.now().plusDays(tempo).isBefore(expiracao);
 	}
 
 }

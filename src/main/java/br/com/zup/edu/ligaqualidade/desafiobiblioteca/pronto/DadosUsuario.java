@@ -10,4 +10,12 @@ public class DadosUsuario {
 		this.idUsuario = idUsuario;
 	}
 
+	public boolean isPadrao() {
+		return TipoUsuario.PADRAO.equals(padrao);
+	}
+
+	public boolean isPesquisador() {
+		return TipoUsuario.PESQUISADOR.equals(padrao);
+	}
+
 }
